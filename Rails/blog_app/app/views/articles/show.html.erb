@@ -14,6 +14,7 @@
 <%= link_to "Articles" , articles_path%>
 
 <h2>Comments</h2>
+<h3> Comments count = <%= @article.comments.count%> <h3>
 <% @article.comments.each do |comment| %>
   <p>
     <strong>Commenter:</strong>
@@ -24,6 +25,11 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+
+   <li><%= link_to "Destroy", article_comment_path(comment), data: {
+                    turbo_method: 'delete'
+
+                  } %></li>
 <% end %>
 
 
